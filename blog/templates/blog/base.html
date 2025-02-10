@@ -22,6 +22,16 @@
         <a href="{% url 'post_new' %}" class="top-menu">
           {% include './icons/file-earmark-plus.svg' %}
         </a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu">Drafts</span></a>
+        <p class="top-menu">Hello {{ user.username }} 
+            - 
+            <form method="post" class="top-menu" action="{% url 'logout' %}">  {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
+            
+        </p>
+        {% else %}
+        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock">Login</span></a>
         {% endif %}
         <h1><a href="/">Chris's Blog</a></h1>
       </div>
